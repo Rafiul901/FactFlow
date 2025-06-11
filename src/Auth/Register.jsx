@@ -1,7 +1,45 @@
-import React from 'react';
+import React, { use } from 'react';
 import { Link } from 'react-router';
+import { AuthContext } from './AuthContext';
+import { updateProfile } from 'firebase/auth';
 
 const Register = () => {
+     const {createUser} = use(AuthContext)
+    const handleRegister = (e)=>{
+        e.preventDefault();
+        const name = e.target.name.value;
+        const photoUrl = e.target.photoUrl.value;
+        const email = e.target.email.value;
+        const password = e.target.password.value;
+        console.log({name,photoUrl,email,password});
+
+ createUser(email, password)
+  .then((userCredential) => {
+    const user = userCredential.user;
+    console.log(user);
+
+    // 🔥 New code added here:
+    updateProfile(user, {
+      displayName: name,
+      photoURL: photoUrl
+    })
+    .then(() => {
+      console.log("Profile updated");
+    })
+    .catch((error) => {
+      console.log("Profile update error", error);
+    });
+
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    console.log(errorCode, errorMessage);
+  });
+
+
+
+    }
     return (
        <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
   <div className="sm:mx-auto sm:w-full sm:max-w-md">
@@ -15,20 +53,13 @@ const Register = () => {
 
   <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
     <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
-      {/* Google Sign Up Button */}
+    
 
 
-      <div className="relative mb-6">
-        <div className="absolute inset-0 flex items-center">
-          <div className="w-full border-t border-gray-300"></div>
-        </div>
-        <div className="relative flex justify-center text-sm">
-        
-        </div>
-      </div>
+
 
       {/* Registration Form */}
-      <form className="space-y-6">
+      <form onSubmit={handleRegister} className="space-y-6">
         <div>
           <label htmlFor="name" className="block text-sm font-medium text-gray-700">
             Full Name
@@ -104,7 +135,7 @@ const Register = () => {
             type="submit"
             className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
           >
-            Create Account
+            Register
           </button>
         </div>
       </form>

@@ -1,8 +1,20 @@
-import React from 'react';
+import React, { use } from 'react';
 import { Link } from 'react-router';
 import logo from '../assets/logo.png'
+import { AuthContext } from '../Auth/AuthContext';
 
-const Navbar = () => {
+
+  const Navbar = () => {
+      const {user,signOutUser} = use(AuthContext);
+      console.log(user);
+      const handleSignOut =()=>{
+          signOutUser()
+          .then(() =>{
+              console.log(signOutUser);
+          })
+          .catch(error =>{
+              console.log(error);
+          })}
     const links = <>
     <Link className='font-semibold' to='/'>Home</Link>
     <Link className='font-semibold' to='/allArticles'>All Articles</Link>
@@ -32,7 +44,30 @@ const Navbar = () => {
     </ul>
   </div>
   <div className="navbar-end">
-<Link to='/login' className='btn bg-blue-700 text-white'>Login</Link>
+{
+  user?  <div className="dropdown dropdown-end">
+      <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+        <div className="w-10 rounded-full">
+          <img
+            alt="Tailwind CSS Navbar component"
+            src={user.photoURL} />
+        </div>
+      </div>
+      <ul
+        tabIndex={0}
+        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+        <li>
+          <a className="justify-between">
+            Profile
+           
+          </a>
+        </li>
+        <li><a>Settings</a></li>
+        <li onClick={handleSignOut}><a>Logout</a></li>
+      </ul>
+    </div>
+:<Link to='/login' className='btn bg-blue-700 text-white'>Login</Link>
+}
   </div>
 </div>
     );

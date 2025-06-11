@@ -1,12 +1,38 @@
-import React from 'react';
-import { Link } from 'react-router';
+import React, { use } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router';
+import { AuthContext } from './AuthContext';
 
 const Login = () => {
+        const {signInUser} =use(AuthContext);
+        const location = useLocation();
+        console.log(location);
+        const navigate = useNavigate();
+        const from = location.state || '/';
+
+         const handleLogin = (e)=>{
+        e.preventDefault();
+
+        const email= e.target.email.value;
+        const password = e.target.password.value;
+        console.log({email,password});
+        signInUser(email,password)
+        .then((userCredential) => {
+    // Signed in 
+    const user = userCredential.user;
+    console.log(user);
+    navigate(from)
+    // ...
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+  });
+}
     return (
         <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
   <div className="sm:mx-auto sm:w-full sm:max-w-md">
 
-    <p className="mt-2 text-center text-lg font-bold">
+    <p className="mt-2 text-center text-3xl font-extrabold">
       Login to your account to continue
     </p>
   </div>
@@ -41,7 +67,7 @@ const Login = () => {
       </div>
 
       {/* Email/Password Form */}
-      <form className="space-y-6">
+      <form onSubmit={handleLogin} className="space-y-6">
         <div>
           <label htmlFor="email" className="block text-sm font-medium text-gray-700">
             Email address
