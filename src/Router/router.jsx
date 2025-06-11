@@ -10,6 +10,8 @@ import MyArticles from '../Components/MyArticles';
 import PostArticle from '../Components/PostArticle';
 import AboutUs from '../Components/AboutUs';
 import Home from '../Components/Home';
+import Login from '../Auth/Login';
+import Register from '../Auth/Register';
 
 
 const router = createBrowserRouter([
@@ -37,6 +39,14 @@ const router = createBrowserRouter([
       {
         path:'/aboutUs',
         element:<AboutUs></AboutUs>
+      },
+      {
+        path: '/login',
+        element:<Login></Login>
+      },
+      {
+        path: '/register',
+        element:<Register></Register>
       }
     ],
 
