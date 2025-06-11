@@ -9,6 +9,7 @@ import AllArticles from '../Components/AllArticles';
 import MyArticles from '../Components/MyArticles';
 import PostArticle from '../Components/PostArticle';
 import AboutUs from '../Components/AboutUs';
+import Home from '../Components/Home';
 
 
 const router = createBrowserRouter([
@@ -16,6 +17,11 @@ const router = createBrowserRouter([
     path: "/",
     element: <RootLayout></RootLayout>,
     children:[
+      {
+        index:true,
+        element:<Home></Home>
+
+      },
       {
         path:'/allArticles',
         element:<AllArticles></AllArticles>
