@@ -28,7 +28,7 @@ const Banner = () => {
       {/* Content container */}
       <div className="relative z-10 h-full flex items-center justify-center">
         <div className="max-w-7xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+          <h1 className="text-4xl  md:text-5xl lg:text-6xl font-bold text-white mb-6">
            Contribute your expertise
           </h1>
           <p className="text-xl md:text-2xl text-gray-50 max-w-3xl mx-auto mb-10">
