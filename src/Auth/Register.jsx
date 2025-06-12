@@ -1,45 +1,46 @@
 import React, { use } from 'react';
-import { Link } from 'react-router';
+import { Link, useNavigate, useLocation } from 'react-router';  // Fixed imports
 import { AuthContext } from './AuthContext';
 import { updateProfile } from 'firebase/auth';
+import Swal from 'sweetalert2';
 
 const Register = () => {
-     const {createUser} = use(AuthContext)
-    const handleRegister = (e)=>{
+    const { createUser } = use(AuthContext);  
+    const navigate = useNavigate();  
+    const location = useLocation();  
+    const handleRegister = (e) => {
         e.preventDefault();
         const name = e.target.name.value;
         const photoUrl = e.target.photoUrl.value;
         const email = e.target.email.value;
         const password = e.target.password.value;
-        console.log({name,photoUrl,email,password});
 
- createUser(email, password)
-  .then((userCredential) => {
-    const user = userCredential.user;
-    console.log(user);
+        createUser(email, password)
+            .then((userCredential) => {
+                const user = userCredential.user;
+                
+                return updateProfile(user, {  // Added return for proper promise chaining
+                    displayName: name,
+                    photoURL: photoUrl
+                });
+            })
+            .then(() => {
+                navigate(location.state?.from || '/');  // Fixed navigation
+                Swal.fire({
+                    title: "Registered Successfully!",
+                    icon: "success",
+                });
+            })
+            .catch((error) => {
+                console.log("Error:", error);
+                Swal.fire({
+                    title: "Registration Failed",
+                    text: error.message,
+                    icon: "error",
+                });
+            });
+    };
 
-    // 🔥 New code added here:
-    updateProfile(user, {
-      displayName: name,
-      photoURL: photoUrl
-    })
-    .then(() => {
-      console.log("Profile updated");
-    })
-    .catch((error) => {
-      console.log("Profile update error", error);
-    });
-
-  })
-  .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    console.log(errorCode, errorMessage);
-  });
-
-
-
-    }
     return (
        <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
   <div className="sm:mx-auto sm:w-full sm:max-w-md">
@@ -118,6 +119,7 @@ const Register = () => {
               type="password"
               autoComplete="new-password"
               required
+              pattern="^(?=.*[a-z])(?=.*[A-Z]).{6,}$"
               className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
             />
           </div>
