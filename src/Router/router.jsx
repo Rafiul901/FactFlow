@@ -26,7 +26,9 @@ const router = createBrowserRouter([
       },
       {
         path:'/allArticles',
-        element:<AllArticles></AllArticles>
+        element:<AllArticles></AllArticles>,
+        loader:()=> fetch('http://localhost:3000/posts')
+
       },
       {
         path:'/myArticles',
