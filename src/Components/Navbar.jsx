@@ -18,8 +18,8 @@ import { AuthContext } from '../Auth/AuthContext';
     const links = <>
     <Link className='font-semibold' to='/'>Home</Link>
     <Link className='font-semibold' to='/allArticles'>All Articles</Link>
-    <Link className='font-semibold' to='/myArticles'>My Articles</Link>
-    <Link className='font-semibold' to='/postArticles'>Post Article</Link>
+    <Link className='font-semibold' to='/myArticles'>Post Article</Link>
+    <Link className='font-semibold' to='/postArticles'>My Articles</Link>
     <Link className='font-semibold' to='/aboutUs'>About Us</Link>
     </>
     return (
