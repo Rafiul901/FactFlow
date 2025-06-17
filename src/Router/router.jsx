@@ -12,16 +12,21 @@ import AboutUs from '../Components/AboutUs';
 import Home from '../Components/Home';
 import Login from '../Auth/Login';
 import Register from '../Auth/Register';
+import Details from '../Components/Details';
+import Loader from '../Components/Loader';
+import Private from '../Components/Private';
 
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <RootLayout></RootLayout>,
+    element: <Loader><RootLayout></RootLayout></Loader>,
+     hydrateFallbackElement:<Loader></Loader>,
     children:[
       {
         index:true,
-        element:<Home></Home>
+        element:<Home></Home>,
+        loader: ()=> fetch('http://localhost:3000/featured')
 
       },
       {
@@ -32,11 +37,11 @@ const router = createBrowserRouter([
       },
       {
         path:'/myArticles',
-        element:<MyArticles></MyArticles>
+        element:<Private><MyArticles></MyArticles></Private>
       },
       {
         path:'/postArticles',
-        element:<PostArticle></PostArticle>
+        element:<Private><PostArticle></PostArticle></Private>
       },
       {
         path:'/aboutUs',
@@ -49,6 +54,11 @@ const router = createBrowserRouter([
       {
         path: '/register',
         element:<Register></Register>
+      },
+      {
+        path:'/posts/:id',
+        element:<Details></Details>,
+        loader: ()=> fetch('http://localhost:3000/posts')
       }
     ],
 

@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-const Card = ({user}) => {
-const {title,author_photo,author_name,date,occupation,_id} =user;
+const Card = ({feature}) => {
+const {title,author_photo,author_name,date,occupation,_id} =feature;
     return (
 <div className="w-96 h-64 flex flex-col rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-1">
   {/* Gradient Background with Content */}
