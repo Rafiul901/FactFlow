@@ -16,6 +16,7 @@ import Details from '../Components/Details';
 import Loader from '../Components/Loader';
 import Private from '../Components/Private';
 import Modal from '../Components/Modal';
+import Categories from '../Components/Categories';
 
 
 const router = createBrowserRouter([
@@ -65,6 +66,10 @@ const router = createBrowserRouter([
         path:'/update/:id',
         element:<Private><Modal></Modal></Private>,
         loader:({params})=> fetch(`http://localhost:3000/myPosts/${params.id}`)
+      },
+      {
+        path:'/category/:category',
+        element:<Categories></Categories>
       }
     ],
 

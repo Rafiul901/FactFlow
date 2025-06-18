@@ -3,7 +3,7 @@ import { useLoaderData, useNavigate } from 'react-router';
 import Swal from 'sweetalert2';
 
 const Modal = () => {
-    const userTask = useLoaderData(); // your loaded article
+    const userTask = useLoaderData(); 
     const { _id } = userTask;
     const navigate = useNavigate();
 
@@ -54,7 +54,7 @@ const Modal = () => {
 
     <div className="rounded-lg shadow-md p-6 border-2 border-blue-500">
       <form onSubmit={handleUpdateArticle} className="space-y-6">
-        {/* Title Field */}
+      
         <div>
           <label htmlFor="title" className="block text-sm font-medium text-gray-700 mb-1">
             Title
@@ -70,7 +70,6 @@ const Modal = () => {
           />
         </div>
 
-        {/* Content Field */}
         <div>
           <label htmlFor="content" className="block text-sm font-medium text-gray-700 mb-1">
             Content
@@ -124,7 +123,6 @@ const Modal = () => {
           </div>
         </div>
 
-        {/* Publish Date */}
         <div>
           <label htmlFor="date" className="block text-sm font-medium text-gray-700 mb-1">
             Publish Date
@@ -139,7 +137,7 @@ const Modal = () => {
           />
         </div>
 
-        {/* Author Info */}
+       
         <div className="bg-gray-100 border p-4 rounded-md">
           <h3 className="text-sm font-medium text-blue-700 mb-2">Author Information</h3>
           <div>
@@ -152,11 +150,10 @@ const Modal = () => {
           </div>
         </div>
 
-        {/* Submit Button */}
         <div className="pt-4">
           <button
             type="submit"
-            className="px-6 py-3 bg-blue-600 btn text-white font-medium rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+            className="px-6 py-3 bg-green-600 btn text-white font-medium rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
           >
             Update Article
           </button>
