@@ -75,9 +75,9 @@ const MyArticles = () => {
         ></textarea>
       </div>
       
-      {/* Category and Thumbnail Row */}
+      
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {/* Category Field */}
+       
         <div>
           <label htmlFor="category" className="block text-sm font-medium text-gray-700 mb-1">
             Category
@@ -95,8 +95,7 @@ const MyArticles = () => {
             <option value="philosophy">Philosophy</option>
           </select>
         </div>
-        
-        {/* Thumbnail Field */}
+    
         <div>
           <label htmlFor="thumbnail" className="block text-sm font-medium text-gray-700 mb-1">
             Thumbnail Image URL
@@ -113,8 +112,7 @@ const MyArticles = () => {
       
   
 
-      
-      {/* Date Field */}
+ 
       <div>
         <label htmlFor="date" className="block text-sm font-medium text-gray-700 mb-1">
           Publish Date
@@ -127,7 +125,7 @@ const MyArticles = () => {
         />
       </div>
       
-      {/* Author Info (readonly) */}
+   
       <div className="bg-gray-100 border-1 p-4 rounded-md">
         <h3 className="text-sm font-medium text-blue-700 mb-2">Author Information</h3>
         <div className="flex items-center space-x-4">
@@ -139,7 +137,7 @@ const MyArticles = () => {
         </div>
       </div>
       
-      {/* Submit Button */}
+   
       <div className="pt-4">
         <button 
           type="submit"
