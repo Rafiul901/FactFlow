@@ -1,141 +1,171 @@
 import React from 'react';
+import { useLoaderData, useNavigate } from 'react-router';
+import Swal from 'sweetalert2';
 
 const Modal = () => {
-    return (
-        <div>
-            <div>
-      {/* Button to open modal */}
-      <button 
-        className="btn btn-primary"
-        onClick={() => document.getElementById('article_modal').showModal()}
-      >
-        Create New Article
-      </button>
+    const userTask = useLoaderData(); // your loaded article
+    const { _id } = userTask;
+    const navigate = useNavigate();
 
-      {/* The dialog modal */}
-      <dialog id="article_modal" className="modal">
-        <div className="modal-box max-w-4xl max-h-[90vh] overflow-y-auto">
-          <div className="flex justify-between items-center mb-6">
-            <h2 className="text-2xl font-bold">Create New Article</h2>
-            <form method="dialog">
-              <button className="btn btn-sm btn-circle">✕</button>
-            </form>
+    const handleUpdateArticle = (e) => {
+        e.preventDefault();
+        const form = e.target;
+        const formData = new FormData(form);
+        const taskData = Object.fromEntries(formData.entries());
+
+        fetch(`http://localhost:3000/myPosts/${_id}`, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(taskData)
+        })
+        .then(res => {
+            if (!res.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return res.json();
+        })
+        .then(data => {
+            Swal.fire({
+                title: 'Success!',
+                text: 'Your task was updated successfully.',
+                icon: 'success',
+                confirmButtonText: 'OK'
+            }).then(() => {
+                navigate('/postArticles');
+            });
+        })
+        .catch(error => {
+            console.error('Error updating task:', error);
+            Swal.fire({
+                title: 'Error!',
+                text: 'Failed to update task',
+                icon: 'error',
+                confirmButtonText: 'OK'
+            });
+        });
+    }
+
+    return (
+<div>
+  <div className="max-w-4xl mx-auto px-4 py-8">
+    <h1 className="text-3xl font-bold mb-6">Update Article</h1>
+
+    <div className="rounded-lg shadow-md p-6 border-2 border-blue-500">
+      <form onSubmit={handleUpdateArticle} className="space-y-6">
+        {/* Title Field */}
+        <div>
+          <label htmlFor="title" className="block text-sm font-medium text-gray-700 mb-1">
+            Title
+          </label>
+          <input
+            type="text"
+            id="title"
+            name="title"
+            required
+            defaultValue={userTask.title}
+            className="w-full px-4 py-2 border-2 border-blue-500 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            placeholder="Enter article title"
+          />
+        </div>
+
+        {/* Content Field */}
+        <div>
+          <label htmlFor="content" className="block text-sm font-medium text-gray-700 mb-1">
+            Content
+          </label>
+          <textarea
+            id="content"
+            name="content"
+            rows={10}
+            required
+            defaultValue={userTask.content}
+            className="w-full px-4 py-2 border-2 border-blue-500 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            placeholder="Write your article content here..."
+          ></textarea>
+        </div>
+
+        {/* Category & Thumbnail */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <label htmlFor="category" className="block text-sm font-medium text-gray-700 mb-1">
+              Category
+            </label>
+            <select
+              id="category"
+              name="category"
+              required
+              defaultValue={userTask.category}
+              className="w-full px-4 py-2 border-2 border-blue-500 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            >
+              <option value="">Select a category</option>
+              <option value="technology">Technology</option>
+              <option value="business">Finance</option>
+              <option value="health">Health</option>
+              <option value="science">Science</option>
+              <option value="history">History</option>
+              <option value="philosophy">Philosophy</option>
+            </select>
           </div>
-          
-          <form className="space-y-4">
-            {/* Title Field */}
-            <div className="form-control">
-              <label className="label">
-                <span className="label-text">Title</span>
-              </label>
-              <input
-                type="text"
-                className="input input-bordered w-full"
-                placeholder="Enter article title"
-              />
-            </div>
-            
-            {/* Content Field */}
-            <div className="form-control">
-              <label className="label">
-                <span className="label-text">Content</span>
-              </label>
-              <textarea
-                rows={6}
-                className="textarea textarea-bordered w-full"
-                placeholder="Write your article content here..."
-              ></textarea>
-            </div>
-            
-            {/* Category and Thumbnail Row */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {/* Category Field */}
-              <div className="form-control">
-                <label className="label">
-                  <span className="label-text">Category</span>
-                </label>
-                <select className="select select-bordered w-full">
-                  <option disabled selected>Select a category</option>
-                  <option>Technology</option>
-                  <option>Business</option>
-                  <option>Health</option>
-                  <option>Entertainment</option>
-                </select>
-              </div>
-              
-              {/* Thumbnail Field */}
-              <div className="form-control">
-                <label className="label">
-                  <span className="label-text">Thumbnail Image URL</span>
-                </label>
-                <input
-                  type="url"
-                  className="input input-bordered w-full"
-                  placeholder="https://example.com/image.jpg"
-                />
-              </div>
-            </div>
-            
-            {/* Tags Field */}
-            <div className="form-control">
-              <label className="label">
-                <span className="label-text">Tags (comma separated)</span>
-              </label>
-              <input
-                type="text"
-                className="input input-bordered w-full"
-                placeholder="tag1, tag2, tag3"
-              />
-            </div>
-            
-            {/* Date Field */}
-            <div className="form-control">
-              <label className="label">
-                <span className="label-text">Publish Date</span>
-              </label>
-              <input
-                type="date"
-                className="input input-bordered w-full"
-              />
-            </div>
-            
-            {/* Author Info (readonly) */}
-            <div className="bg-base-200 p-3 rounded-box">
-              <h3 className="text-xs font-medium opacity-70 mb-1">Author Information</h3>
-              <div className="flex items-center space-x-3">
-                <div className="avatar placeholder">
-                  <div className="bg-neutral text-neutral-content rounded-full w-8">
-                    <span className="text-xs">userInitials</span>
-                  </div>
-                </div>
-                <div>
-                  <p className="text-sm font-medium">username</p>
-                  <p className="text-xs opacity-70">email</p>
-                </div>
-              </div>
-            </div>
-            
-            {/* Action Buttons */}
-            <div className="modal-action">
-              {/* This form will close the modal */}
-              <form method="dialog">
-                <button className="btn">Cancel</button>
-              </form>
-              <button type="submit" className="btn btn-primary">
-                Publish Article
-              </button>
-            </div>
-          </form>
+
+          <div>
+            <label htmlFor="thumbnail" className="block text-sm font-medium text-gray-700 mb-1">
+              Thumbnail Image URL
+            </label>
+            <input
+              type="url"
+              id="thumbnail"
+              name="thumbnail"
+              defaultValue={userTask.thumbnail}
+              className="w-full px-4 py-2 border-2 border-blue-500 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              placeholder="Add image"
+            />
+          </div>
         </div>
-        
-        {/* Clicking outside closes the modal */}
-        <form method="dialog" className="modal-backdrop">
-          <button>close</button>
-        </form>
-      </dialog>
+
+        {/* Publish Date */}
+        <div>
+          <label htmlFor="date" className="block text-sm font-medium text-gray-700 mb-1">
+            Publish Date
+          </label>
+          <input
+            type="date"
+            id="date"
+            name="date"
+            required
+            defaultValue={userTask.date}
+            className="w-full px-4 py-2 border-2 border-blue-500 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+          />
+        </div>
+
+        {/* Author Info */}
+        <div className="bg-gray-100 border p-4 rounded-md">
+          <h3 className="text-sm font-medium text-blue-700 mb-2">Author Information</h3>
+          <div>
+            <p className="text-sm text-gray-900">
+              <span className="font-bold">Name:</span> {userTask.userName}
+            </p>
+            <p className="text-sm text-blue-950">
+              <span className="font-bold">Email:</span> {userTask.userEmail}
+            </p>
+          </div>
+        </div>
+
+        {/* Submit Button */}
+        <div className="pt-4">
+          <button
+            type="submit"
+            className="px-6 py-3 bg-blue-600 btn text-white font-medium rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+          >
+            Update Article
+          </button>
+        </div>
+      </form>
     </div>
-  
-        </div>
+  </div>
+</div>
+
     );
 };
 

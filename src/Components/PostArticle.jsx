@@ -4,6 +4,7 @@ import Loader from './Loader';
 import Swal from 'sweetalert2';
 import { Link } from 'react-router'; // Fixed import
 import { AuthContext } from '../Auth/AuthContext';
+import Modal from './Modal';
 
 const PostArticle = () => {
   const { user, loading } = use(AuthContext);
@@ -102,7 +103,7 @@ const PostArticle = () => {
                             to={`/update/${task._id}`}
                             className="px-2 md:px-3 py-1 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors text-xs md:text-sm"
                           >
-                            Update
+                            Update Post
                           </Link>
                           <button 
                             onClick={() => handleDelete(task)} 
