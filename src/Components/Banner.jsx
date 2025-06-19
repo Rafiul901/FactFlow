@@ -11,7 +11,7 @@ const Banner = () => {
 
   return (
     <div className="relative w-full h-screen max-h-[600px] overflow-hidden">
-      {/* Background image with proper sizing */}
+
       <div 
         className="absolute inset-0 w-full h-full bg-cover bg-center"
         style={{ 
@@ -21,11 +21,11 @@ const Banner = () => {
           backgroundRepeat: 'no-repeat'
         }}
       >
-        {/* Dark overlay with responsive opacity */}
+ 
         <div className="absolute inset-0 bg-black/30 md:bg-black/20"></div>
       </div>
       
-      {/* Content container */}
+  
       <div className="relative z-10 h-full flex items-center justify-center">
         <div className="max-w-7xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl  md:text-5xl lg:text-6xl font-bold text-white mb-6">

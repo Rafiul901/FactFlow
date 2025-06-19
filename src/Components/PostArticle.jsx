@@ -2,7 +2,7 @@ import React, { use, useEffect, useState } from 'react';
 
 import Loader from './Loader';
 import Swal from 'sweetalert2';
-import { Link } from 'react-router'; // Fixed import
+import { Link } from 'react-router'; 
 import { AuthContext } from '../Auth/AuthContext';
 import Modal from './Modal';
 
@@ -81,7 +81,7 @@ const PostArticle = () => {
             </div>
           ) : (
             <div className="overflow-x-auto">
-              {/* Desktop Table */}
+             
               <table className="w-full hidden md:table">
                 <thead className="bg-indigo-400 border-4 border-blue-600 text-white">
                   <tr>
@@ -119,7 +119,6 @@ const PostArticle = () => {
                 </tbody>
               </table>
 
-              {/* Mobile Cards */}
               <div className="md:hidden space-y-4">
                 {myTasks.map(task => (
                   <div key={task._id} className="border border-blue-100 rounded-lg p-4 bg-white shadow-sm">

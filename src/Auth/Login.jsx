@@ -1,6 +1,7 @@
 import React, { use } from 'react';  
 import { Link, useLocation, useNavigate } from 'react-router'; 
 import { AuthContext } from './AuthContext';
+import Swal from 'sweetalert2';
 
 const Login = () => {
     const { signInUser, googleSignIn } = use(AuthContext); 
@@ -22,7 +23,15 @@ const Login = () => {
                 navigate(from);
             })
             .catch((error) => {
-                console.error(error);
+               const errorCode = error.code;
+    const errorMessage = error.message;
+    Swal.fire({
+  icon: "error",
+  title: "Oops...",
+  text: 'Invalid Credential!'
+
+});
+   
             });
     }
 

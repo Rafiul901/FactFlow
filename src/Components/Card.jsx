@@ -34,7 +34,7 @@ const {title,author_photo,author_name,date,occupation,_id} =user;
     
   
     <div className="flex justify-end pt-2">
-     <Link to={`/posts/${_id}`}> <button className="flex btn items-center px-4 py-2 bg-white bg-opacity-20 rounded-full backdrop-blur-sm border border-blue-300 border-opacity-30 hover:bg-opacity-30 transition-all duration-300 group">
+     <Link to={`/posts/${_id}`}> <button className="flex btn items-center px-4 py-2 bg-white text-black bg-opacity-20 rounded-full backdrop-blur-sm border border-blue-300 border-opacity-30 hover:bg-opacity-30 transition-all duration-300 group">
         <span className="font-medium text-sm mr-2">Read Article</span>
         <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />

@@ -25,7 +25,7 @@ const Register = () => {
                 });
             })
             .then(() => {
-                navigate(location.state?.from || '/');  // Fixed navigation
+                navigate(location.state?.from || '/'); 
                 Swal.fire({
                     title: "Registered Successfully!",
                     icon: "success",

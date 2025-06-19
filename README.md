@@ -1,12 +1,50 @@
-# React + Vite
+ ## FactFlow
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+FactFlow is an article-based web platform where users can read, write, and share opinions on a variety of topics. It encourages community interaction through comments and likes while offering a smooth and responsive user experience.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+ [Visit FactFlow](https://your-live-site-url.com)
+
+---
+
+## Purpose
+
+The main goal of FactFlow is to create a knowledge-sharing community where users can:
+- Read informative articles.
+- Publish their own posts.
+- Interact with others through likes and comments.
+- Discover content based on their interests.
+
+---
+
+## Key Features
+
+**Read Articles** – Browse a wide range of user-generated articles.
+**Post Articles** – Authenticated users can write and publish articles.
+ **Comments** – Share your thoughts on articles.
+ **Like Posts** – Appreciate great content by liking it.
+ **Authentication** – Register and log in securely using Firebase Auth.
+ **Category-Based Filtering** – View articles based on selected categories.
+ **Responsive Design** – Fully optimized for all screen sizes.
+
+---
+
+## Tech Stack
+
+**Frontend:**
+- React.js
+- Tailwind CSS
+- React Router
+- Firebase Authentication
+- SweetAlert2
+
+**Backend:**
+- Node.js
+- Express.js
+- MongoDB (with MongoDB Atlas)
+
+
+
