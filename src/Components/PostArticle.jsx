@@ -24,7 +24,7 @@ const PostArticle = () => {
       confirmButtonText: "Yes, delete it!"
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`https://backend-rafiul901-rafiul901s-projects.vercel.app/myPosts/${_id}`, {
+        fetch(`https://backend-gray-eight-74.vercel.app/myPosts/${_id}`, {
           method: 'DELETE'
         })
         .then(res => res.json())
@@ -52,7 +52,7 @@ const PostArticle = () => {
 
   useEffect(() => {
     if (user?.email) {
-      fetch(`https://backend-rafiul901-rafiul901s-projects.vercel.app/myPosts?email=${user.email}`)
+      fetch(`https://backend-gray-eight-74.vercel.app/myPosts?email=${user.email}`)
         .then(res => res.json())
         .then(data => {
           setMyTasks(data);

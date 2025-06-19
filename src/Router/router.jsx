@@ -28,13 +28,14 @@ const router = createBrowserRouter([
       {
         index:true,
         element:<Home></Home>,
-        loader: ()=> fetch('https://backend-rafiul901-rafiul901s-projects.vercel.app/featured')
+        loader: ()=> fetch('https://backend-gray-eight-74.vercel.app/featured')
 
       },
+      //https://backend-gray-eight-74.vercel.app/
       {
         path:'/allArticles',
         element:<AllArticles></AllArticles>,
-        loader:()=> fetch('https://backend-rafiul901-rafiul901s-projects.vercel.app/posts')
+        loader:()=> fetch('https://backend-gray-eight-74.vercel.app/posts')
 
       },
       {
@@ -60,12 +61,12 @@ const router = createBrowserRouter([
       {
         path:'/posts/:id',
         element:<Details></Details>,
-        loader: ()=> fetch('https://backend-rafiul901-rafiul901s-projects.vercel.app/posts')
+        loader: ()=> fetch('https://backend-gray-eight-74.vercel.app/posts')
       },
        {
         path:'/update/:id',
         element:<Private><Modal></Modal></Private>,
-        loader:({params})=> fetch(`https://backend-rafiul901-rafiul901s-projects.vercel.app/myPosts/${params.id}`)
+        loader:({params})=> fetch(`https://backend-gray-eight-74.vercel.app/myPosts/${params.id}`)
       },
       {
         path:'/category/:category',

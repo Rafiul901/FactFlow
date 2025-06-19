@@ -7,7 +7,7 @@ const AllArticles = () => {
 
 
   useEffect(() => {
-    let url = 'https://backend-rafiul901-rafiul901s-projects.vercel.app/posts';
+    let url = 'https://backend-gray-eight-74.vercel.app/posts';
 
     const params = new URLSearchParams();
     if (filter) params.append('category', filter);

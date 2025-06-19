@@ -13,7 +13,7 @@ const Modal = () => {
         const formData = new FormData(form);
         const taskData = Object.fromEntries(formData.entries());
 
-        fetch(`https://backend-rafiul901-rafiul901s-projects.vercel.app/myPosts/${_id}`, {
+        fetch(`https://backend-gray-eight-74.vercel.app/myPosts/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

@@ -10,7 +10,7 @@ const Categories = () => {
   useEffect(() => {
     const fetchPostsByCategory = async () => {
       try {
-        const response = await fetch(`https://backend-rafiul901-rafiul901s-projects.vercel.app/posts/category/${category}`);
+        const response = await fetch(`https://backend-gray-eight-74.vercel.app/posts/category/${category}`);
         const data = await response.json();
         setPosts(data);
         setLoading(false);
