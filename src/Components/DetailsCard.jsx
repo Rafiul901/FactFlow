@@ -82,7 +82,7 @@ const DetailsCard = ({post}) => {
 
   <div className="bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800 p-8 ">
     <div className="flex justify-between items-start mb-4">
-      <span className="inline-block px-3 py-1 bg-white bg-opacity-20 rounded-full text-sm font-medium">
+      <span className="inline-block px-3 py-1 text-black bg-white bg-opacity-20 rounded-full text-sm font-medium">
         {category}
       </span>
       <span className="text-blue-200 text-sm">

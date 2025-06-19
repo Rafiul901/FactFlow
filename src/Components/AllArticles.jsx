@@ -32,7 +32,7 @@ const AllArticles = () => {
 
       <div className='flex justify-center gap-10 mb-8'>
         <select
-          className='border-2 border-blue-600 px-4 py-2 rounded select-primary'
+          className='border-2 border-blue-600 text-green-700 px-4 py-2 rounded select-primary'
           onChange={e => setFilter(e.target.value)}
           value={filter}
         >

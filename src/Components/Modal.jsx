@@ -96,7 +96,7 @@ const Modal = () => {
               name="category"
               required
               defaultValue={userTask.category}
-              className="w-full px-4 py-2 border-2 border-blue-500 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              className="w-full text-green-600 px-4 py-2 border-2 border-blue-500 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
             >
               <option value="">Select a category</option>
               <option value="technology">Technology</option>
