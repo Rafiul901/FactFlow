@@ -16,7 +16,7 @@ const MyArticles = () => {
         taskData.userEmail = user?.email;
         taskData.userName = user?.displayName;
     
-        fetch(`http://localhost:3000/myPosts?email=${user.email}`, {
+        fetch(`https://backend-rafiul901-rafiul901s-projects.vercel.app/myPosts?email=${user.email}`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'

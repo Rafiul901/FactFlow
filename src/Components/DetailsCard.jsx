@@ -33,7 +33,7 @@ const DetailsCard = ({post}) => {
     if (alreadyLiked) return Swal.fire("You already liked this post!");
      
 
-    const res = await fetch('http://localhost:3000/likes', {
+    const res = await fetch('https://backend-rafiul901-rafiul901s-projects.vercel.app/likes', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -62,7 +62,7 @@ const DetailsCard = ({post}) => {
       comment: commentText
     };
 
-    const res = await fetch('http://localhost:3000/comments', {
+    const res = await fetch('https://backend-rafiul901-rafiul901s-projects.vercel.app/comments', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(newComment)

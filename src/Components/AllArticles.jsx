@@ -7,7 +7,7 @@ const AllArticles = () => {
 
 
   useEffect(() => {
-    let url = 'http://localhost:3000/posts';
+    let url = 'https://backend-rafiul901-rafiul901s-projects.vercel.app/posts';
 
     const params = new URLSearchParams();
     if (filter) params.append('category', filter);

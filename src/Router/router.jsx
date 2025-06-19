@@ -28,13 +28,13 @@ const router = createBrowserRouter([
       {
         index:true,
         element:<Home></Home>,
-        loader: ()=> fetch('http://localhost:3000/featured')
+        loader: ()=> fetch('https://backend-rafiul901-rafiul901s-projects.vercel.app/featured')
 
       },
       {
         path:'/allArticles',
         element:<AllArticles></AllArticles>,
-        loader:()=> fetch('http://localhost:3000/posts')
+        loader:()=> fetch('https://backend-rafiul901-rafiul901s-projects.vercel.app/posts')
 
       },
       {
@@ -60,12 +60,12 @@ const router = createBrowserRouter([
       {
         path:'/posts/:id',
         element:<Details></Details>,
-        loader: ()=> fetch('http://localhost:3000/posts')
+        loader: ()=> fetch('https://backend-rafiul901-rafiul901s-projects.vercel.app/posts')
       },
        {
         path:'/update/:id',
         element:<Private><Modal></Modal></Private>,
-        loader:({params})=> fetch(`http://localhost:3000/myPosts/${params.id}`)
+        loader:({params})=> fetch(`https://backend-rafiul901-rafiul901s-projects.vercel.app/myPosts/${params.id}`)
       },
       {
         path:'/category/:category',
