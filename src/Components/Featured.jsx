@@ -45,17 +45,17 @@ const buttonVariants = {
   whileHover="hover"
   variants={cardVariants}
 >
-  {/* Gradient Background with Content */}
+
   <div className="flex-1 bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800 p-6 text-white flex flex-col">
     
-    {/* Title - with fixed height and ellipsis for overflow */}
-    <motion.h2 
+
+    <h2 
       className="text-2xl font-bold mb-3 leading-tight line-clamp-2 h-16"
       whileHover={{ scale: 1.02 }}
       transition={{ type: "spring", stiffness: 400, damping: 10 }}
     >
       {title}
-    </motion.h2>
+    </h2>
     
     {/* Author Section with Profile Pic - fixed height */}
     <motion.div 
