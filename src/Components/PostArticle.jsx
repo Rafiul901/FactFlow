@@ -70,7 +70,7 @@ const PostArticle = () => {
   return (
     <div className="min-h-screen  p-4 md:p-6">
       <div className="max-w-6xl mx-auto">
-        <div className="bg-white border-2 border-indigo-700 rounded-xl shadow-md overflow-hidden p-4 md:p-6">
+        <div className=" border-2 border-indigo-700 rounded-xl shadow-md overflow-hidden p-4 md:p-6">
           <div className="flex justify-between items-center mb-6 md:mb-8">
             <h2 className="text-2xl md:text-3xl font-bold text-blue-700">My Posted Tasks</h2>
           </div>
@@ -91,12 +91,12 @@ const PostArticle = () => {
                     <th className="px-4 md:px-6 py-3 md:py-4 text-left font-bold uppercase text-black tracking-wider">Actions</th>
                   </tr>
                 </thead>
-                <tbody className="bg-white divide-y divide-blue-100">
+                <tbody className="  divide-y divide-blue-100">
                   {myTasks.map(task => (
                     <tr key={task._id} className="hover:bg-blue-50 transition-colors">
-                      <td className="px-4 md:px-6 py-3 md:py-4 whitespace-nowrap text-blue-900 font-medium">{task.title}</td>
-                      <td className="px-4 md:px-6 py-3 md:py-4 whitespace-nowrap text-blue-800">{task.date}</td>
-                      <td className="px-4 md:px-6 py-3 md:py-4 whitespace-nowrap text-blue-800 font-semibold"><img className='w-15 border-2 border-blue-600' src={task.thumbnail} alt="" /></td>
+                      <td className="px-4 md:px-6 py-3 md:py-4 whitespace-nowrap text-blue-700 font-medium">{task.title}</td>
+                      <td className="px-4 md:px-6 py-3 md:py-4 whitespace-nowrap text-blue-700">{task.date}</td>
+                      <td className="px-4 md:px-6 py-3 md:py-4 whitespace-nowrap text-blue-700 font-semibold"><img className='w-15 border-2 border-blue-600' src={task.thumbnail} alt="" /></td>
                       <td className="px-4 md:px-6 py-3 md:py-4 whitespace-nowrap">
                         <div className="flex space-x-2">
                           <Link 
