@@ -22,11 +22,11 @@ const Error = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.2 }}
-        className="flex flex-col items-center justify-center text-center mt-8 max-w-2xl"
+        className="flex flex-col items-center justify-center text-center mt-3 max-w-2xl"
       >
     
         
-        <p className="text-gray-600 text-lg mb-8">
+        <p className="text-gray-600 text-lg mb-3">
           The page you're looking for doesn't exist or may have been moved.
           <br />
           Let's get you back on track.
