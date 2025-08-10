@@ -29,11 +29,11 @@ const Navbar = () => {
 
   const links = (
     <>
-      <Link className='font-semibold' to='/'>Home</Link>
-      <Link className='font-semibold' to='/allArticles'>All Articles</Link>
-      <Link className='font-semibold' to='/myArticles'>Post Article</Link>
-      <Link className='font-semibold' to='/postArticles'>My Articles</Link>
-      <Link className='font-semibold' to='/aboutUs'>About Us</Link>
+      <li><Link className='font-semibold' to='/'>Home</Link></li>
+      <li><Link className='font-semibold' to='/allArticles'>All Articles</Link></li>
+      <li><Link className='font-semibold' to='/myArticles'>Post Article</Link></li>
+      <li><Link className='font-semibold' to='/postArticles'>My Articles</Link></li>
+      <li><Link className='font-semibold' to='/aboutUs'>About Us</Link></li>
     </>
   );
 
@@ -54,11 +54,11 @@ const Navbar = () => {
           </ul>
         </div>
         <img className='w-14' src={logo} alt="" />
-        <a className="btn btn-ghost text-xl text-blue-600 font-bold">FactFlow</a>
+        <a className=" text-xl text-blue-600 font-bold">FactFlow</a>
       </div>
 
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1 gap-6">
+        <ul className="menu menu-horizontal px-1 ">
           {links}
         </ul>
       </div>
