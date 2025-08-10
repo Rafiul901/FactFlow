@@ -1,33 +1,50 @@
-import React from 'react';      
-import error from '../assets/error.png'
+import React from 'react';
+import error from '../assets/error.jpg';
+import { motion } from 'framer-motion';
+
 const Error = () => {
   return (
-    <>
-      <div className="flex justify-center items-center">
+    <div className="min-h-screen flex flex-col justify-center items-center bg-gradient-to-br from-gray-50 to-gray-100 p-4">
+      <motion.div
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="flex justify-center items-center"
+      >
         <img
           src={error}
           alt="Error 404"
-          className="w-[800px]"
+          className="w-full max-w-2xl md:max-w-3xl lg:max-w-5xl rounded-lg shadow-xl"
         />
-      </div>
-      <div className="flex flex-col items-center justify-center text-center mt-5">
+      </motion.div>
+      
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.2 }}
+        className="flex flex-col items-center justify-center text-center mt-8 max-w-2xl"
+      >
+    
         
-        
-        <p className="text-gray-500 mt-2">
-          Sorry, the page you are looking for does not exist or has been moved.
+        <p className="text-gray-600 text-lg mb-8">
+          The page you're looking for doesn't exist or may have been moved.
+          <br />
+          Let's get you back on track.
         </p>
-        <a
+        
+        <motion.a
           href="/"
-          className="mt-6 px-6 py-2 text-white font-bold bg-black hover:bg-purple-600 rounded-lg"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          className="px-8 py-3 text-lg font-semibold text-white bg-gradient-to-r from-purple-600 to-indigo-600 rounded-lg shadow-md hover:shadow-lg transition-all duration-300"
         >
-          Go to Homepage
-        </a>
-      </div>
-    </>
+          Return to Homepage
+        </motion.a>
+        
+      
+      </motion.div>
+    </div>
   );
 };
-
-
-
 
 export default Error;
