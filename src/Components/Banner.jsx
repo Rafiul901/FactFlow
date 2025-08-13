@@ -11,7 +11,7 @@ const Banner = () => {
   };
 
   return (
-    <div className="relative w-full h-screen max-h-[600px] overflow-hidden">
+    <div className="relative w-full h-[70vh] max-h-[500px] overflow-hidden">
       {/* Background Image */}
       <div
         className="absolute inset-0 w-full h-full bg-cover bg-center"
@@ -29,7 +29,7 @@ const Banner = () => {
       <div className="relative z-10 h-full flex items-center justify-center">
         <div className="max-w-7xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           
-          {/* 🛠 Animated Heading */}
+          {/* Animated Heading */}
           <motion.h1
             className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6"
             initial={{ opacity: 0, y: -40 }}
@@ -39,7 +39,7 @@ const Banner = () => {
             Contribute your expertise
           </motion.h1>
 
-          {/* 🛠 Animated Paragraph */}
+          {/* Animated Paragraph */}
           <motion.p
             className="text-xl md:text-2xl text-gray-50 max-w-3xl mx-auto mb-10"
             initial={{ opacity: 0, y: 40 }}
@@ -50,7 +50,7 @@ const Banner = () => {
             discover new ideas, and achieve shared growth.
           </motion.p>
 
-          {/* 🛠 Animated Button */}
+          {/* Animated Button */}
           <motion.button
             onClick={handleExploreClick}
             className="bg-white text-indigo-600 hover:bg-gray-50 font-semibold py-3 px-8 rounded-lg text-lg transition-all duration-300 hover:scale-105 shadow-lg active:scale-95"

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import Card3 from './Card3';
+import Loader from './Loader';
 
 const Categories = () => {
   const { category } = useParams();
@@ -24,12 +25,12 @@ const Categories = () => {
   }, [category]);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <div><Loader></Loader></div>;
   }
 
   return (
     <div className="max-w-7xl mx-auto py-16 px-6 lg:px-8">
-      <h1 className="text-3xl font-bold text-gray-800 mb-8">Articles in {category}</h1>
+      <h1 className="text-3xl font-bold text-gray-500 mb-8">Articles in {category}</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {
             posts.map(postCat =><Card3 key={postCat._id} postCat={postCat}></Card3>)

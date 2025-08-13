@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 import logo from '../assets/logo.png';
 import fb from '../assets/fb.jpg';
 import x from '../assets/x.png';
@@ -8,9 +9,11 @@ const Footer = () => {
     return (
        <footer className="footer sm:footer-horizontal bg-neutral text-neutral-content p-10 mt-10">
             <aside>
-                <img className='w-16 h-16 rounded-xl' src={logo} alt="" />
+                <Link to="/">
+                    <img className='w-16 h-16 rounded-xl' src={logo} alt="FactFlow Logo" />
+                </Link>
                 <p>
-                    <span className='font-bold text-xl text-blue-400'>FactFlow</span>
+                    <Link to="/" className='font-bold text-xl text-blue-400 hover:text-blue-300 transition-colors'>FactFlow</Link>
                     <br />
                     Contribute your expertise
                 </p>
@@ -18,21 +21,21 @@ const Footer = () => {
 
             <nav>
                 <h6 className="footer-title">Legal</h6>
-                <a className="link link-hover" href="#">About Us</a>
-                <a className="link link-hover" href="#">Contact Us</a>
-                <a className="link link-hover" href="#">Terms & Conditions</a>
+                <Link to="/about-us" className="link link-hover hover:text-blue-300 transition-colors">About Us</Link>
+                <Link to="/contact" className="link link-hover hover:text-blue-300 transition-colors">Contact Us</Link>
+                <Link to="/terms" className="link link-hover hover:text-blue-300 transition-colors">Terms & Conditions</Link>
             </nav>
 
             <nav>
                 <h6 className="footer-title">Social</h6>
                 <div className="grid grid-flow-col gap-4">
-                    <a href="https://www.facebook.com/rmamit.tajib" target="_blank" rel="noopener noreferrer" >
+                    <a href="https://www.facebook.com/rmamit.tajib" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity">
                         <img className="w-8 rounded-full border-white border-2" src={fb} alt="Facebook" />
                     </a>
-                    <a href="https://x.com/Curious093270" target="_blank" rel="noopener noreferrer">
+                    <a href="https://x.com/Curious093270" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity">
                         <img className="w-8 rounded-full border-white border-2" src={x} alt="X (Twitter)" />
                     </a>
-                    <a href="https://www.youtube.com/@eccentric10" target="_blank" rel="noopener noreferrer">
+                    <a href="https://www.youtube.com/@eccentric10" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity">
                         <img className="w-8 rounded-full border-white border-2" src={yt} alt="YouTube" />
                     </a>
                 </div>

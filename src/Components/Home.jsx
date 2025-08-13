@@ -6,6 +6,7 @@ import Section1 from './Section1';
 import Section2 from './Section2';
 import { useLoaderData } from 'react-router';
 import Featured from './Featured';
+import Extra2 from './Extra2';
 
 const Home = () => {
     const featuredData = useLoaderData();
@@ -79,8 +80,10 @@ const Home = () => {
 </div>
 
             <Extra></Extra>
-            <Section1></Section1>
+            <Extra2></Extra2>
+            
             <Section2></Section2>
+            <Section1></Section1>
         </div>
     );
 };
