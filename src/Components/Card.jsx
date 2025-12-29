@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router'; // Fixed import
+import { Link } from 'react-router'; 
 
 const Card = ({ user }) => {
   const { title, author_photo, author_name, date, occupation, _id } = user;
