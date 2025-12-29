@@ -70,17 +70,20 @@ const links = (
           </div>
 
           <div className="navbar-end gap-4">
-            <label className="flex cursor-pointer items-center gap-2">
-              <input
-                type="checkbox"
-                className="toggle theme-controller"
-                onChange={() => setIsDark(!isDark)}
-                checked={isDark}
-              />
-              <span className="text-xl">
-                {isDark ? <MdOutlineDarkMode /> : <MdOutlineLightMode />}
-              </span>
-            </label>
+            {/* Hide on mobile, show on desktop */}
+            <div className="hidden lg:flex">
+              <label className="flex cursor-pointer items-center gap-2">
+                <input
+                  type="checkbox"
+                  className="toggle theme-controller"
+                  onChange={() => setIsDark(!isDark)}
+                  checked={isDark}
+                />
+                <span className="text-xl">
+                  {isDark ? <MdOutlineDarkMode /> : <MdOutlineLightMode />}
+                </span>
+              </label>
+            </div>
 
             {user ? (
               <div className="dropdown dropdown-end">
